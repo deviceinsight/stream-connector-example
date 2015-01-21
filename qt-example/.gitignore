@@ -1,0 +1,9 @@
+Makefile
+build
+rmcs-connector-serial
+moc_*.cpp
+*.o
+*.prf
+*.kdev
+
+

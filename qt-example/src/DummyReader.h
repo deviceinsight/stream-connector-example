@@ -5,22 +5,22 @@
 
 class DummyReader :  public QObject {
 
-Q_OBJECT
+    Q_OBJECT
 
 private:
-	const QString dpKey;
+    const QString dpKey;
 
-	int counter;
+    int counter;
 
 public:
-	explicit DummyReader(const QString& _dpKey, int interval, QObject* parent=0);
+    explicit DummyReader(const QString& _dpKey, int interval, QObject* parent = 0);
 
 public slots:
-	void timerFired();
+    void timerFired();
 
 signals:
-	void valueReceived(const QString& k, const QVariant& v);
-    void eventReceived(const QString& eventKey, const int priority,QVariant come, QVariant acknowledged, const QString& text, QDateTime timestamp); 
+    void valueReceived(const QString& k, const QVariant& v);
+    void eventReceived(const QString& eventKey, const int priority, QVariant come, QVariant acknowledged, const QString& text, QDateTime timestamp);
 };
 
 #endif

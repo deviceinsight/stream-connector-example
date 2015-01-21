@@ -5,16 +5,16 @@
 
 class DatapointEmitter :  public QObject {
 
-Q_OBJECT
+    Q_OBJECT
 
 private:
-	QSharedPointer<QTextStream> stream;
+    QSharedPointer<QTextStream> stream;
 
 public:
-	explicit DatapointEmitter(QSharedPointer<QTextStream> _stream, QObject* _parent=0);
+    explicit DatapointEmitter(QSharedPointer<QTextStream> _stream, QObject* _parent = 0);
 
 public slots:
-	void emitDatapointValue(const QString& key, const QVariant& value); 
+    void emitDatapointValue(const QString& key, const QVariant& value);
 
 };
 

@@ -5,18 +5,18 @@
 
 class ConfigReader :  public QThread {
 
-Q_OBJECT
+    Q_OBJECT
 
 private:
-	QSharedPointer<QTextStream> stream;
+    QSharedPointer<QTextStream> stream;
 
 public:
-	explicit ConfigReader(QSharedPointer<QTextStream> _stream, QObject* _parent=0);
+    explicit ConfigReader(QSharedPointer<QTextStream> _stream, QObject* _parent = 0);
 
-	QVariantMap readConfig();
+    QVariantMap readConfig();
 
 protected:
-	virtual void run ();
+    virtual void run();
 
 
 };

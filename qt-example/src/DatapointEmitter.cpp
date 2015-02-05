@@ -2,7 +2,6 @@
 #include "JsonUtil.h"
 #include "DatapointEmitter.h"
 
-
 DatapointEmitter::DatapointEmitter(QSharedPointer<QTextStream> _stream, QObject* _parent)
     : QObject(_parent), stream(_stream) {
 }

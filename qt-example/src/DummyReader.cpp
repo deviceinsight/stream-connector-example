@@ -21,7 +21,4 @@ void DummyReader::timerFired() {
     if(counter % 10 == 0) {
         emit eventReceived("dummy event", 0, false, false, "this is an event", QDateTime::currentDateTime());
     }
-
 }
-
-

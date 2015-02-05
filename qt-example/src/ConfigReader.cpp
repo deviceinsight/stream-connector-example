@@ -2,9 +2,7 @@
 #include "JsonUtil.h"
 #include "ConfigReader.h"
 
-
 static const int MAX_LINE_LEN = 8192;
-
 
 ConfigReader::ConfigReader(QSharedPointer<QTextStream> _stream, QObject* _parent)
     : QThread(_parent), stream(_stream) {

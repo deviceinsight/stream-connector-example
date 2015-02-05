@@ -1,13 +1,18 @@
 SET(connector_SOURCES 
-
-	Qt-Connector-Example.cpp EventEmitter.cpp ConfigReader.cpp JsonUtil.cpp DatapointEmitter.cpp DummyReader.cpp
-    
+	Qt-Connector-Example.cpp 
+	EventEmitter.cpp
+	ConfigReader.cpp
+	JsonUtil.cpp
+	DatapointEmitter.cpp
+	DummyReader.cpp
 	)
 
 SET(connector_HEADERS
-
-	 EventEmitter.h ConfigReader.h JsonUtil.h DatapointEmitter.h DummyReader.h
-
+	EventEmitter.h
+	ConfigReader.h
+	JsonUtil.h
+	DatapointEmitter.h
+	DummyReader.h
 	)
 
 qt4_automoc(${connector_SOURCES})
@@ -23,5 +28,3 @@ SET(LIBRARIES
 )
 
 target_link_libraries(connector-qt-example ${LIBRARIES})
-
-

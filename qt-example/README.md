@@ -1,6 +1,10 @@
 qt-connector-example
 =====================
 
+Prepare configuration settings
+    
+    cp local.cmake.template local.cmake
+
 Compile with
 
     mkdir build

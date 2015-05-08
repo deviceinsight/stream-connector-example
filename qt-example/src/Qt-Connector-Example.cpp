@@ -5,10 +5,14 @@
 
 #include "EventEmitter.h"
 #include "DatapointEmitter.h"
+#include "GeoPositionEmitter.h"
 #include "ConfigReader.h"
 #include "DummyReader.h"
 
 int main(int argc, char* argv[]) {
+
+    /* initialisation of random number generator */
+    qsrand((uint)QTime::currentTime().msec());
 
     //QT main loop
     QCoreApplication a(argc, argv);
@@ -42,10 +46,12 @@ int main(int argc, char* argv[]) {
     cfgr->start();
     EventEmitter *eve = new EventEmitter(streamStdoutPtr, &a);
     DatapointEmitter *dpe = new DatapointEmitter(streamStdoutPtr, &a);
+    GeoPositionEmitter *gpe = new GeoPositionEmitter(streamStdoutPtr, &a);
 
     DummyReader *dummy = new DummyReader("example key", interval, &a);
     dummy->connect(dummy, SIGNAL(valueReceived(QString, QVariant)), dpe, SLOT(emitDatapointValue(QString, QVariant)));
     dummy->connect(dummy, SIGNAL(eventReceived(QString, int, QVariant, QVariant, QString, QDateTime)), eve, SLOT(emitEvent(QString, int, QVariant, QVariant, QString, QDateTime)));
+    dummy->connect(dummy, SIGNAL(geoPositionReceived(float, float)), gpe, SLOT(emitGeoPosition(float, float)));
 
     a.exec();
 

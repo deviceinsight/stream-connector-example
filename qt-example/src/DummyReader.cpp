@@ -15,10 +15,14 @@ DummyReader::DummyReader(const QString& _dpKey, int interval, QObject* parent)
 
 void DummyReader::timerFired() {
 
-    QString val = QString("%1").arg(++counter);
-    emit valueReceived(dpKey, val);
+    counter++;
 
-    if(counter % 10 == 0) {
+
+    if(counter % 3 == 1) {
         emit eventReceived("dummy event", 0, false, false, "this is an event", QDateTime::currentDateTime());
+    } else if(counter % 3 == 2) {
+        emit valueReceived(dpKey, QString("%1").arg(counter));
+    } else {
+        emit geoPositionReceived((((float)qrand() / (float)RAND_MAX) * 180) - 90, (((float)qrand() / (float)RAND_MAX) * 360) - 180);
     }
 }

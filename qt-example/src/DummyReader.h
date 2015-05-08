@@ -21,6 +21,7 @@ public slots:
 signals:
     void valueReceived(const QString& k, const QVariant& v);
     void eventReceived(const QString& eventKey, const int priority, QVariant come, QVariant acknowledged, const QString& text, QDateTime timestamp);
+    void geoPositionReceived(const float latitude, const float longitude);
 };
 
 #endif

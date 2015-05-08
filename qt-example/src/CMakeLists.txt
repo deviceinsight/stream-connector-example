@@ -4,6 +4,7 @@ SET(connector_SOURCES
 	ConfigReader.cpp
 	JsonUtil.cpp
 	DatapointEmitter.cpp
+	GeoPositionEmitter.cpp
 	DummyReader.cpp
 	)
 
@@ -12,6 +13,7 @@ SET(connector_HEADERS
 	ConfigReader.h
 	JsonUtil.h
 	DatapointEmitter.h
+	GeoPositionEmitter.h
 	DummyReader.h
 	)
 
@@ -23,7 +25,6 @@ add_executable(connector-qt-example ${connector_HEADERS_MOC} ${connector_SOURCES
 SET(LIBRARIES 
 	${QT_QTCORE_LIBRARY} 
 	${QT_LIBRARIES}
-	${QT_XML}
 	${QT_QTNETWORK_LIBRARY}
 )
 

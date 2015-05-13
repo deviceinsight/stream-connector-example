@@ -6,7 +6,7 @@ EventEmitter::EventEmitter(QSharedPointer<QTextStream> _stream, QObject* _parent
     : QObject(_parent), stream(_stream) {
 }
 
-void EventEmitter::emitEvent(const QString& eventKey, const int priority, QVariant come, QVariant acknowledged, const QString& text,  QDateTime timestamp) {
+void EventEmitter::emitEvent(const QString& eventKey, const int priority, QVariant come, QVariant acknowledged, const QString& text,  QDateTime tsIso8601) {
 
     QVariantMap valueMap;
 
@@ -15,7 +15,7 @@ void EventEmitter::emitEvent(const QString& eventKey, const int priority, QVaria
     valueMap["come"] = come;
     valueMap["acknowledged"] = acknowledged;
     valueMap["text"] = text;
-    valueMap["timestamp"] = timestamp.toString(Qt::ISODate);
+    valueMap["tsIso8601"] = tsIso8601.toString(Qt::ISODate);
 
     QVariantMap jsonMap;
     jsonMap["event"] = valueMap;

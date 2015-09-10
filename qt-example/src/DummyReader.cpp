@@ -19,7 +19,7 @@ void DummyReader::timerFired() {
 
 
     if(counter % 3 == 1) {
-        emit eventReceived("dummy event", 0, false, false, "this is an event", QDateTime::currentDateTimeUtc());
+        emit eventReceived(QString("dummy event %1").arg(counter), 0, false, false, "this is an event", QDateTime::currentDateTimeUtc());
     } else if(counter % 3 == 2) {
         emit valueReceived(dpKey, QString("%1").arg(counter));
     } else {

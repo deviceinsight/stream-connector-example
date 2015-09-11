@@ -1,9 +1,8 @@
 
-#include "JsonUtil.h"
 #include "GeoPositionEmitter.h"
 
-GeoPositionEmitter::GeoPositionEmitter(QSharedPointer<QTextStream> _stream, QObject* _parent)
-    : QObject(_parent), stream(_stream) {
+GeoPositionEmitter::GeoPositionEmitter(QSharedPointer<CommunicationHandler> _communicationHandler, QObject* _parent)
+    : QObject(_parent), communicationHandler(_communicationHandler) {
 }
 
 void GeoPositionEmitter::emitGeoPosition(const float latitude, const float longitude) {
@@ -16,8 +15,5 @@ void GeoPositionEmitter::emitGeoPosition(const float latitude, const float longi
     QVariantMap jsonMap;
     jsonMap["geoPosition"] = valueMap;
 
-    QString json = JsonUtil::stringify(jsonMap);
-
-    *stream << json << "\n";
-    stream->flush();
+    communicationHandler->sendMessage(jsonMap);
 }

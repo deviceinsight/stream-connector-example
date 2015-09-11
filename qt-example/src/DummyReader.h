@@ -2,20 +2,22 @@
 #define DUMMYREADER_H_
 
 #include <QtCore>
+#include "Configuration.h"
 
 class DummyReader :  public QObject {
 
     Q_OBJECT
 
 private:
-    const QString dpKey;
-
+    QTimer* t;
+    QSharedPointer<Configuration> configuration;
     int counter;
 
 public:
-    explicit DummyReader(const QString& _dpKey, int interval, QObject* parent = 0);
+    explicit DummyReader(QSharedPointer<Configuration> config, QObject* parent = 0);
 
 public slots:
+    void configurationReceived();
     void timerFired();
 
 signals:

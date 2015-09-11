@@ -1,9 +1,8 @@
 #include <QtCore>
-#include "JsonUtil.h"
 #include "DatapointEmitter.h"
 
-DatapointEmitter::DatapointEmitter(QSharedPointer<QTextStream> _stream, QObject* _parent)
-    : QObject(_parent), stream(_stream) {
+DatapointEmitter::DatapointEmitter(QSharedPointer<CommunicationHandler> _communicationHandler, QObject* _parent)
+    : QObject(_parent), communicationHandler(_communicationHandler) {
 }
 
 void DatapointEmitter::emitDatapointValue(const QString& key, const QVariant& value) {
@@ -15,9 +14,6 @@ void DatapointEmitter::emitDatapointValue(const QString& key, const QVariant& va
     QVariantMap jsonMap;
     jsonMap["datapointValue"] = valueMap;
 
-    QString json = JsonUtil::stringify(jsonMap);
-
-    *stream << json << "\n";
-    stream->flush();
+    communicationHandler->sendMessage(jsonMap);
 }
 

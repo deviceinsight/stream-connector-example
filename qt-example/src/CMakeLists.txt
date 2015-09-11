@@ -1,20 +1,24 @@
 SET(connector_SOURCES 
 	Qt-Connector-Example.cpp 
 	EventEmitter.cpp
-	ConfigReader.cpp
-	JsonUtil.cpp
 	DatapointEmitter.cpp
 	GeoPositionEmitter.cpp
 	DummyReader.cpp
+	util/JsonUtil.cpp
+    CommunicationHandler.cpp
+    Configuration.cpp
+    CommandProcessor.cpp
 	)
 
 SET(connector_HEADERS
 	EventEmitter.h
-	ConfigReader.h
-	JsonUtil.h
 	DatapointEmitter.h
 	GeoPositionEmitter.h
 	DummyReader.h
+	util/JsonUtil.h
+    CommunicationHandler.h
+    Configuration.h
+    CommandProcessor.h
 	)
 
 qt4_automoc(${connector_SOURCES})

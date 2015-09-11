@@ -130,6 +130,7 @@ QString JsonUtil::stringify(QVariant v) {
     } else if(t == QVariant::StringList) {
         QString r = "[";
         QStringList l = v.toStringList();
+
         foreach(QString i, l) {
             r += "\"" + i + "\",";
         }
@@ -143,6 +144,7 @@ QString JsonUtil::stringify(QVariant v) {
     } else if(t == QVariant::List) {
         QString r = "[";
         QVariantList l = v.toList();
+
         foreach(QVariant i, l) {
             r += stringify(i) + ",";
         }

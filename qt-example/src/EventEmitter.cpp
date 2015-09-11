@@ -1,9 +1,9 @@
 #include <QtCore>
-#include "JsonUtil.h"
 #include "EventEmitter.h"
+#include "CommunicationHandler.h"
 
-EventEmitter::EventEmitter(QSharedPointer<QTextStream> _stream, QObject* _parent)
-    : QObject(_parent), stream(_stream) {
+EventEmitter::EventEmitter(QSharedPointer<CommunicationHandler> _communicationHandler, QObject* _parent)
+    : QObject(_parent), communicationHandler(_communicationHandler) {
 }
 
 void EventEmitter::emitEvent(const QString& eventKey, const int priority, QVariant come, QVariant acknowledged, const QString& text,  QDateTime tsIso8601) {
@@ -20,9 +20,6 @@ void EventEmitter::emitEvent(const QString& eventKey, const int priority, QVaria
     QVariantMap jsonMap;
     jsonMap["event"] = valueMap;
 
-    QString json = JsonUtil::stringify(jsonMap);
-
-    *stream << json << "\n";
-    stream->flush();
+    communicationHandler->sendMessage(jsonMap);
 }
 

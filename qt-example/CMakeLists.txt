@@ -16,11 +16,13 @@ SET(QT_USE_QTNETWORK TRUE)
 
 include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 
+if (NOT QJSON_LIB)
+    SET (QJSON_LIB ${LINUX_LIB_BASE}/libqjson.so)
+endif()
+
 INCLUDE(${QT_USE_FILE})
 
 enable_testing()
 
 add_subdirectory (src) 
-
-
 

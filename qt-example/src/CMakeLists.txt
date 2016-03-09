@@ -30,6 +30,7 @@ SET(LIBRARIES
 	${QT_QTCORE_LIBRARY} 
 	${QT_LIBRARIES}
 	${QT_QTNETWORK_LIBRARY}
+	${QJSON_LIB}
 )
 
 target_link_libraries(connector-qt-example ${LIBRARIES})

@@ -5,9 +5,9 @@ SET(connector_SOURCES
 	GeoPositionEmitter.cpp
 	DummyReader.cpp
 	util/JsonUtil.cpp
-    CommunicationHandler.cpp
-    Configuration.cpp
-    CommandProcessor.cpp
+	CommunicationHandler.cpp
+	Configuration.cpp
+	CommandProcessor.cpp
 	)
 
 SET(connector_HEADERS
@@ -16,9 +16,9 @@ SET(connector_HEADERS
 	GeoPositionEmitter.h
 	DummyReader.h
 	util/JsonUtil.h
-    CommunicationHandler.h
-    Configuration.h
-    CommandProcessor.h
+	CommunicationHandler.h
+	Configuration.h
+	CommandProcessor.h
 	)
 
 qt4_automoc(${connector_SOURCES})

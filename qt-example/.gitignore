@@ -1,9 +1,12 @@
 Makefile
 build
-rmcs-connector-serial
 moc_*.cpp
+moc_*.cxx
+moc_*.cxx_parameters
 *.o
 *.prf
 *.kdev
-
-
+CMakeCache.txt
+CMakeFiles
+CTestTestfile.cmake
+cmake_install.cmake
